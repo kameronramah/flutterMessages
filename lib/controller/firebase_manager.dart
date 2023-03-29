@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:m2tldigitalcampus/model/utilisateur.dart';
+import 'package:m2tldigitalcampus/model/messages.dart';
 
 class FirebaseManager {
   //attributs
@@ -65,4 +66,11 @@ class FirebaseManager {
     url = await snapshot.ref.getDownloadURL();
     return url;
   }
+
+  // envoyer une message
+
+  Future<Message> sendMessage() {
+    
+  }
+
 }
