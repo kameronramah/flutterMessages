@@ -14,7 +14,6 @@ class _DashBoardState extends State<DashBoard> {
   //variable
   int currentPage = 0;
 
-
   //méthode
   @override
   Widget build(BuildContext context) {
@@ -28,39 +27,28 @@ class _DashBoardState extends State<DashBoard> {
       appBar: AppBar(),
       body: bodyPage(currentPage),
       bottomNavigationBar: BottomNavigationBar(
-
         currentIndex: currentPage,
-        onTap: (value){
+        onTap: (value) {
           setState(() {
             currentPage = value;
           });
-
-
         },
-        items:const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: "Listes"
-          ),
-
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: "Favoris"
-          ),
-
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Listes"),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Favoris"),
         ],
-
       ),
-
     );
   }
 
-  Widget bodyPage(int page){
-    switch(page){
-      case 0 : return const ListPersonne();
-      case 1: return const ListFavoris();
-      default : return const Text("Mauvaise page");
+  Widget bodyPage(int page) {
+    switch (page) {
+      case 0:
+        return const ListPersonne();
+      case 1:
+        return const ListFavoris();
+      default:
+        return const Text("Mauvaise page");
     }
-
   }
 }
