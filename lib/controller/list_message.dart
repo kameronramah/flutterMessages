@@ -26,7 +26,6 @@ class _ListMessageState extends State<ListMessage> {
             .snapshots(),
         builder: (context, snap) {
           List documents = snap.data?.docs ?? [];
-          debugPrint(documents.toString());
           if (documents.isEmpty) {
             return Container();
           } else {

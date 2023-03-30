@@ -41,7 +41,6 @@ dependencies:
   lottie: ^2.3.0
   file_picker: ^5.2.6
   permission_handler: ^10.2.0
-  word_break_text: ^0.1.0
 
 dev_dependencies:
   flutter_test:
