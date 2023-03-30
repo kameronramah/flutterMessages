@@ -5,6 +5,7 @@ import 'package:m2tldigitalcampus/controller/globale.dart';
 import 'package:m2tldigitalcampus/view/dash_board.dart';
 import 'package:flutter/foundation.dart';
 import 'package:lottie/lottie.dart';
+import 'package:m2tldigitalcampus/controller/translateController.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,12 +14,13 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+
+
 class _LoginPageState extends State<LoginPage> {
   //variable
   List<bool> selection = [true,false];
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-
 
 
   //méhode interne

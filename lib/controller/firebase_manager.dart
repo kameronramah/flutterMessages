@@ -4,12 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:m2tldigitalcampus/model/utilisateur.dart';
-// A virer
-import 'dart:ui';
-import 'package:google_ml_kit/google_ml_kit.dart';
-import 'package:google_mlkit_translation/google_mlkit_translation.dart';
-
-
 
 
 class FirebaseManager {
@@ -71,21 +65,6 @@ class FirebaseManager {
         await storage.ref("$destination/$nameImage").putData(bytes);
     url = await snapshot.ref.getDownloadURL();
     return url;
-  }
-
-// A virer
-
-  String getDeviceLanguage() {
-      return  window.locale.languageCode;
-  } 
-
-
-  final onDeviceTranslator = OnDeviceTranslator(sourceLanguage: TranslateLanguage.french, targetLanguage: TranslateLanguage.english);
-
-  
-  FirebaseManager () {
-    onDeviceTranslator.translateText('Je suis roi').then((value) => print(value));
-
   }
 
 }
