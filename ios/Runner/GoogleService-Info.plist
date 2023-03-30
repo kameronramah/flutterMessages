@@ -8,21 +8,21 @@
 <key>NSPhotoLibraryUsageDescription</key>
 <string>Example: You should fill this in</string>
 	<key>CLIENT_ID</key>
-	<string>935032860660-221659365qdmqa4pkve8cmn9a0telrbe.apps.googleusercontent.com</string>
+	<string>645310918219-llf8pcd43k4ke0jgmblu845ms4pg9jd9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.935032860660-221659365qdmqa4pkve8cmn9a0telrbe</string>
+	<string>com.googleusercontent.apps.645310918219-llf8pcd43k4ke0jgmblu845ms4pg9jd9</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD9He-gpcPSToLbfsxQzPSg-JxlA02QLlU</string>
+	<string>AIzaSyCXVDmJyNYJNLdCiiXwJ61wM6XCbo-RVeM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>935032860660</string>
+	<string>645310918219</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.m2tldigitalcampus</string>
 	<key>PROJECT_ID</key>
-	<string>m2tl-badff</string>
+	<string>fluttermessages-ee767</string>
 	<key>STORAGE_BUCKET</key>
-	<string>m2tl-badff.appspot.com</string>
+	<string>fluttermessages-ee767.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -34,6 +34,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:935032860660:ios:69f9f491e6c8c09ebf93a1</string>
+	<string>1:645310918219:ios:1284535c7ddd3aa08c27ce</string>
 </dict>
 </plist>

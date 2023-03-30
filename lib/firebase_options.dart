@@ -59,14 +59,15 @@ class DefaultFirebaseOptions {
     projectId: 'fluttermessages-ee767',
     storageBucket: 'fluttermessages-ee767.appspot.com',
   );
-
+  //ios
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCXVDmJyNYJNLdCiiXwJ61wM6XCbo-RVeM',
     appId: '1:645310918219:ios:1284535c7ddd3aa08c27ce',
     messagingSenderId: '645310918219',
     projectId: 'fluttermessages-ee767',
     storageBucket: 'fluttermessages-ee767.appspot.com',
-    iosClientId: '645310918219-llf8pcd43k4ke0jgmblu845ms4pg9jd9.apps.googleusercontent.com',
+    iosClientId:
+        '645310918219-llf8pcd43k4ke0jgmblu845ms4pg9jd9.apps.googleusercontent.com',
     iosBundleId: 'com.example.m2tldigitalcampus',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '645310918219',
     projectId: 'fluttermessages-ee767',
     storageBucket: 'fluttermessages-ee767.appspot.com',
-    iosClientId: '645310918219-llf8pcd43k4ke0jgmblu845ms4pg9jd9.apps.googleusercontent.com',
+    iosClientId:
+        '645310918219-llf8pcd43k4ke0jgmblu845ms4pg9jd9.apps.googleusercontent.com',
     iosBundleId: 'com.example.m2tldigitalcampus',
   );
 }
