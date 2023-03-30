@@ -1,8 +1,10 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:m2tldigitalcampus/model/utilisateur.dart';
 import 'package:m2tldigitalcampus/model/messages.dart';
 
@@ -67,10 +69,18 @@ class FirebaseManager {
     return url;
   }
 
-  // envoyer une message
+ // envoyer une message
 
-  Future<Message> sendMessage() {
-    
+  Future<void> sendMessage(String from, String to, String content) async {
+      Map<String, dynamic> map = {"FROM": from, "TO": to, "CONTENT": content, "DATE": DateTime.now()};
+      cloudMessages.add(map);
   }
+
+  Future<Stream<QuerySnapshot<Map<String, dynamic>>>> getConversations(String from, to) async {
+    final querySnapshot = cloudMessages.where("FROM", isEqualTo: from).where("TO", isEqualTo: to).orderBy("DATE").snapshots();
+    return querySnapshot;
+  }
+
+
 
 }
