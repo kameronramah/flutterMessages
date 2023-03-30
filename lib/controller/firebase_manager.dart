@@ -69,18 +69,15 @@ class FirebaseManager {
     return url;
   }
 
- // envoyer une message
+  // envoyer une message
 
   Future<void> sendMessage(String from, String to, String content) async {
-      Map<String, dynamic> map = {"FROM": from, "TO": to, "CONTENT": content, "DATE": DateTime.now()};
-      cloudMessages.add(map);
+    Map<String, dynamic> map = {
+      "FROM": from,
+      "TO": to,
+      "CONTENT": content,
+      "DATE": DateTime.now()
+    };
+    cloudMessages.add(map);
   }
-
-  Future<Stream<QuerySnapshot<Map<String, dynamic>>>> getConversations(String from, to) async {
-    final querySnapshot = cloudMessages.where("FROM", isEqualTo: from).where("TO", isEqualTo: to).orderBy("DATE").snapshots();
-    return querySnapshot;
-  }
-
-
-
 }

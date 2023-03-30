@@ -66,7 +66,7 @@ class _ListPersonneState extends State<ListPersonne> {
                         onTap: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return Conversation(email: otherUser.email);
+                            return Conversation(user: otherUser);
                           }));
                         },
                       ),
