@@ -1,9 +1,12 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:m2tldigitalcampus/model/utilisateur.dart';
+import 'package:m2tldigitalcampus/model/messages.dart';
 
 class FirebaseManager {
   //attributs
@@ -64,5 +67,17 @@ class FirebaseManager {
         await storage.ref("$destination/$nameImage").putData(bytes);
     url = await snapshot.ref.getDownloadURL();
     return url;
+  }
+
+  // envoyer une message
+
+  Future<void> sendMessage(String from, String to, String content) async {
+    Map<String, dynamic> map = {
+      "FROM": from,
+      "TO": to,
+      "CONTENT": content,
+      "DATE": DateTime.now()
+    };
+    cloudMessages.add(map);
   }
 }
