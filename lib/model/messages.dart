@@ -4,7 +4,9 @@ class Message {
   late String from;
   late String to;
   late String content;
+  late String contentTranslate;
   late DateTime date;
+  
 
   Message.empty() {
     from = "";
