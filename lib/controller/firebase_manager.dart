@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:typed_data';
+import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -55,7 +56,10 @@ class FirebaseManager {
 // mise à jour d'un utlisateur
   updateUser(String uid, Map<String, dynamic> map) {
     cloudUsers.doc(uid).update(map);
+
   }
+
+
 
 //suppression d'un utlisateur
 
@@ -69,13 +73,16 @@ class FirebaseManager {
     return url;
   }
 
+
   // envoyer une message
 
   Future<void> sendMessage(String from, String to, String content) async {
+  
     Map<String, dynamic> map = {
       "FROM": from,
       "TO": to,
       "CONTENT": content,
+      "CONVERSATIONID": from + to,
       "DATE": DateTime.now()
     };
     cloudMessages.add(map);
