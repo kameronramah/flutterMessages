@@ -50,7 +50,7 @@ class _ListMessageState extends State<ListMessage> {
                   late Future<String> translatedMessage;
                   // Si le message n'a pas encore été traduit, on le traduit
                   if (!_translatedMessages.contains(message)) {
-                    _translatedMessages.add(message);
+                    _translatedMessages.insert(0, message);
                     translatedMessage = translateMessage(message.content);
                   } else {
                     translatedMessage = Future.value(message.content);
