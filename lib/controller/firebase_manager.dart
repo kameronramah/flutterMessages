@@ -83,6 +83,7 @@ class FirebaseManager {
       "FROM": from,
       "TO": to,
       "CONTENT": content,
+      "CONVERSATIONID": from + to,
       "DATE": DateTime.now()
     };
     cloudMessages.add(map);

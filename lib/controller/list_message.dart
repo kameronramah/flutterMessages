@@ -24,7 +24,7 @@ class _ListMessageState extends State<ListMessage> {
   Future<String> translateMessage(String message) async {
     final translation =
         await translator.translate(message, to: window.locale.languageCode);
-    return translation.toString();
+        return translation.toString();
   }
 
   @override
@@ -32,8 +32,7 @@ class _ListMessageState extends State<ListMessage> {
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseManager()
             .cloudMessages
-            .where(
-                "(FROM == ${widget.user.uid} && TO == ${myUser.uid}) || (FROM == ${myUser.uid} && TO == ${widget.user.uid})")
+            .where("CONVERSATIONID", whereIn: [myUser.uid + widget.user.uid, widget.user.uid + myUser.uid])
             .orderBy("DATE", descending: true)
             .snapshots(),
         builder: (context, snap) {

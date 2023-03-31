@@ -4,7 +4,7 @@ class Message {
   late String from;
   late String to;
   late String content;
-  late String contentTranslate;
+  late String conversationId;
   late DateTime date;
   
 
@@ -20,6 +20,7 @@ class Message {
     from = map["FROM"];
     to = map["TO"];
     content = map["CONTENT"];
+    conversationId = map["CONVERSATIONID"];
     date = DateTime.now();
   }
 }
