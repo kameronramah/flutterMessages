@@ -21,6 +21,12 @@ class _ListMessageState extends State<ListMessage> {
   final translator = GoogleTranslator();
   List<Message> _translatedMessages = [];
 
+  Future<String> translateMessage(String message) async {
+    final translation =
+        await translator.translate(message, to: window.locale.languageCode);
+    return translation.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -41,43 +47,43 @@ class _ListMessageState extends State<ListMessage> {
                 padding: const EdgeInsets.all(10),
                 itemBuilder: (context, index) {
                   Message message = Message(documents[index]);
-                  if (index >= _translatedMessages.length) {
-                    // Si le message n'a pas encore été traduit, on le traduit
-                    translator
-                        .translate(message.content, to: window.locale.languageCode)
-                        .then((value) => {
-                              setState(() {
-                                message.content = value.toString();
-                                _translatedMessages.add(message);
-                              })
-                            });
-                    // On retourne le message non traduit pour l'instant
-                    return Container();
+                  late Future<String> translatedMessage;
+                  // Si le message n'a pas encore été traduit, on le traduit
+                  if (!_translatedMessages.contains(message)) {
+                    _translatedMessages.add(message);
+                    translatedMessage = translateMessage(message.content);
+                  } else {
+                    translatedMessage = Future.value(message.content);
                   }
-                  else {
-                    // Si le message a déjà été traduit, on retourne le message traduit
-                    Message translatedMessage = _translatedMessages[index];
-                    return Column(
-                        crossAxisAlignment: message.from == myUser.uid
-                            ? CrossAxisAlignment.end
-                            : CrossAxisAlignment.start,
-                        children: [
-                          FractionallySizedBox(
-                              widthFactor: 0.4,
-                              child: Card(
-                                  color: message.from == myUser.uid
-                                      ? Colors.green
-                                      : Colors.grey,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15)),
-                                  child: Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: Text(translatedMessage.content))))
-                        ]);
-                  }
+                  return FutureBuilder<String>(
+                    future: translatedMessage,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Column(
+                            crossAxisAlignment: message.from == myUser.uid
+                                ? CrossAxisAlignment.end
+                                : CrossAxisAlignment.start,
+                            children: [
+                              FractionallySizedBox(
+                                  widthFactor: 0.4,
+                                  child: Card(
+                                      color: message.from == myUser.uid
+                                          ? Colors.green
+                                          : Colors.grey,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      child: Padding(
+                                          padding: const EdgeInsets.all(12.0),
+                                          child: Text(snapshot.data!))))
+                            ]);
+                      } else {
+                        return Container();
+                      }
+                    },
+                  );
                 });
           }
-          ;
         });
   }
 }
