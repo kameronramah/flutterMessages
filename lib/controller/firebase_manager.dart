@@ -49,7 +49,6 @@ class FirebaseManager {
     if (uid == null) {
       return Future.error(("problème de connexion"));
     } else {
-      cloudUsers.doc(uid).update({'localLang': window.locale.languageCode });
       return getUser(uid!);
     }
   }

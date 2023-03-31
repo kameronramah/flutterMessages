@@ -9,7 +9,6 @@ class Utilisateur {
   String? nom;
   String? prenom;
   String? avatar;
-  String? localLang;
   late List favoris;
 
 
